@@ -11,12 +11,13 @@ router = routers.DefaultRouter()
 
 router.register('users', views.UserViewSet)
 router.register('groups', views.GroupViewSet)
-
+# router.register('testapiview', views.test_apiview.as_view())
 
 urlpatterns = [
      path('', include(router.urls)),
      path('test/', views.HelloWorld),
      path('testlist/', views.test_list),
+     path('testapiview/', views.test_apiview),
 ]
 
 

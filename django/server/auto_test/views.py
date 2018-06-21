@@ -6,6 +6,8 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
+from rest_framework.decorators import api_view
+
 
 from auto_test.serializers import UserSerializer, GroupSerializer, ArticleSerializer
 # Create your views here.
@@ -41,7 +43,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 @csrf_exempt
 def test_list(request):
     if request.method == "GET":
-        
+
         testList = Article.objects.all()
         testListSerializer = ArticleSerializer(testList, many=True) # 这里的many 疑问
         return JsonResponse(testListSerializer.data, safe=False)
@@ -54,3 +56,8 @@ def test_list(request):
             POSTSerializer.save()
             return JsonResponse(POSTSerializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
+
+
+@api_view(['GET'])
+def test_apiview(request):
+    return HttpResponse("测试apiView")
