@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# from rest_framework import *
 # from blog.urls import blog
 
 # from blog.views import apptitle
@@ -24,5 +25,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('blog.urls')),
+    path('autotest/', include('auto_test.urls')),
     # path('home/', apptitle.apptitle),
+    path('api-auth/', include('rest_framework.urls')),
 ]
