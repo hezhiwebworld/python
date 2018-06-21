@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User, Group 
 from rest_framework import viewsets
 from django.views.decorators.csrf import csrf_exempt
-
+from rest_framework.parsers import JSONParser
 
 from auto_test.serializers import UserSerializer, GroupSerializer, ArticleSerializer
 # Create your views here.
@@ -40,7 +40,17 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 @csrf_exempt
 def test_list(request):
-   
-    testList = Article.objects.all()
-    testListSerializer = ArticleSerializer(testList, many=True) # 这里的many 疑问
-    return JsonResponse(testListSerializer.data, safe=False)
+    if request.method == "GET":
+        
+        testList = Article.objects.all()
+        testListSerializer = ArticleSerializer(testList, many=True) # 这里的many 疑问
+        return JsonResponse(testListSerializer.data, safe=False)
+    elif request.method == "POST":
+
+        data  = JSONParser().parse(request)
+        POSTSerializer = ArticleSerializer(data=data)
+
+        if(POSTSerializer.is_valid()):
+            POSTSerializer.save()
+            return JsonResponse(POSTSerializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
