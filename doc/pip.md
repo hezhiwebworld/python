@@ -23,9 +23,13 @@ python manage.py  startapp appname
 
 6. 生成迁移文件
 
-python manage.py  makemigritions
+python manage.py   makemigrations
 
 
 7. 执行迁移
 
-python manage.py migrate
+python manage.py  migrate
+
+8. 开启服务
+
+python manage.py  runserver

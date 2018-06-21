@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 # Create your models here.
 
@@ -6,7 +7,7 @@ from django.db import models
 class Article(models.Model):
     title = models.CharField(max_length=50,unique=True)
     author = models.CharField(max_length=10)
-    create_date =  models.DateTimeField(default=timezone.now()) # 日期
+    create_date =  models.DateTimeField(default=now) # 日期
     content = models.TextField()    # 文本
     reading_amount = models.IntegerField() #整数
 
