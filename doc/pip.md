@@ -33,3 +33,7 @@ python manage.py  migrate
 8. 开启服务
 
 python manage.py  runserver
+
+
+10. 查看 nigix 启动时间
+ps -ef|grep  nginx

@@ -26,9 +26,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'lv59_pi-*863ay^bfcocomk8zxkl7)%!@3vi^h+93p!q^3k4u+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['10.241.74.21', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # 时间格式化的插件
 TIME_FORMAT = '%Y-%m-%d %H:%M:%S'
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+# 数据源
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
