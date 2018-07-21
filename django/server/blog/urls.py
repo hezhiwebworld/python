@@ -3,7 +3,7 @@ from django.urls import path
 
 
 
-# 自定义模块
+
 from blog.views import blognavtitle
 from blog.views import blog_acticle_lsit
 from blog.views import views

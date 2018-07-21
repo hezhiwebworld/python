@@ -37,3 +37,6 @@ python manage.py  runserver
 
 10. 查看 nigix 启动时间
 ps -ef|grep  nginx
+
+
+python manage.py collectstatic

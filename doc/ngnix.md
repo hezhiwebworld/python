@@ -10,3 +10,18 @@ uwsgi协议是一个uWSGI服务器自有的协议，它用于定义传输信息�
 
 启动服务器
 sudo /etc/init.d/nginx start
+service nginx restart
+
+
+
+uwsgi  --socket :8001 --ini /home/scripts/uwsgi.ini
+
+cd   /home/python/django/server
+
+uwsgi --socket :8001 --module server.wsgi
+
+cd /home/python/django/server
+
+
+
+nohup uwsgi --socket :8001 --module server.wsgi &
