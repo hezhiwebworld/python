@@ -30,12 +30,7 @@ def blog_acticle_lsit(request):
                 return  JsonResponse(Article_list, safe=False)
     except Exception as ex:
         print(ex)
-        return  JsonResponse({'return': 1}, safe=False)
-
-
-
-
-
+        return  JsonResponse({'return': ex}, safe=False)
     # for art  in Article_queryset:
     #     temp = model_to_dict(art)  # 将一个queryset对象转化为  字典
     #     Article_list.append(temp)
